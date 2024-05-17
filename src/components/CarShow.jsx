@@ -14,8 +14,10 @@ import { BlendFunction } from "postprocessing";
 import { Ground } from "./Ground";
 import { Car } from "./Car";
 import { LightPole } from "./LightPole";
+import { useState } from "react";
 
-export const CarShow = () => {
+export const CarShow = ({ hood }) => {
+  console.log("hood", hood);
   return (
     <>
       <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
@@ -79,7 +81,7 @@ export const CarShow = () => {
         {(texture) => (
           <>
             <Environment map={texture} />
-            <Car />
+            <Car hood={hood} />
           </>
         )}
       </CubeCamera>{" "}
