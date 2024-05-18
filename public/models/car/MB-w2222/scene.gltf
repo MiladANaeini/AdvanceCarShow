@@ -3954,6 +3954,13 @@
 				389,
 				392
 			],
+			"extras":{
+				"RearLights":0,
+				"BrakeLights":0,
+				"HazardLights":0,
+				"RunningDayLights":0,
+				"Flasher":0
+			},
 			"name":"RootNode"
 		},
 		{
@@ -4378,11 +4385,11 @@
 			"emissiveFactor":[
 				1,
 				0,
-				0
+				0.010722257667926862
 			],
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":1.8133388757705688
+					"emissiveStrength":7.990989089012146
 				}
 			},
 			"name":"sw222_vehiclelights",
@@ -4640,11 +4647,21 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0.21806923854049787,
+				0
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":8.30765426158905
+				}
+			},
 			"name":"sw222_off",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.8282921314239502,
-					0.18243005871772766,
+					0.830765426158905,
+					0.18116438388824463,
 					0,
 					1
 				],
@@ -4689,11 +4706,21 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				0.35152941942214966,
+				0.9473072290420532,
+				1
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":10
+				}
+			},
 			"name":"sw222_runninglight",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.3526061177253723,
-					0.9433941841125488,
+					0.35152941942214966,
+					0.9473072290420532,
 					1,
 					1
 				],
@@ -4702,6 +4729,16 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0.21806923854049787,
+				0
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":8.30765426158905
+				}
+			},
 			"name":"sw222_signal_L",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
@@ -4716,6 +4753,16 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0.21806923854049787,
+				0
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":8.30765426158905
+				}
+			},
 			"name":"sw222_amg_texture9.001",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
@@ -4730,16 +4777,25 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				0.35152941942214966,
+				0.9473072290420532,
+				1
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":10
+				}
+			},
 			"name":"sw222_foglight",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
+					0.35152941942214966,
+					0.9473072290420532,
+					1,
 					1
 				],
-				"metallicFactor":0,
-				"roughnessFactor":0.7470178008079529
+				"roughnessFactor":0
 			}
 		},
 		{
@@ -4757,6 +4813,16 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0.21806923854049787,
+				0
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":8.30765426158905
+				}
+			},
 			"name":"sw222_signal_R",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
@@ -4810,6 +4876,16 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0,
+				0.010722257667926862
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":7.990989089012146
+				}
+			},
 			"name":"sw222_brakelight",
 			"pbrMetallicRoughness":{
 				"roughnessFactor":0
@@ -4817,12 +4893,22 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0.21806923854049787,
+				0
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":8.30765426158905
+				}
+			},
 			"name":"sw222_reverselight",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
+					0.7990977168083191,
+					0.7991036176681519,
+					0.7991032600402832,
 					1
 				],
 				"metallicFactor":0,
@@ -4831,12 +4917,22 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				0.2066481405386028,
+				0.22671085045773176
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":7.990986704826355
+				}
+			},
 			"name":"sw222_taillight",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.8003469705581665,
-					0.16461800038814545,
-					0.1806820034980774,
+					0.7990986704826355,
+					0.16513225436210632,
+					0.18116433918476105,
 					1
 				],
 				"roughnessFactor":0
