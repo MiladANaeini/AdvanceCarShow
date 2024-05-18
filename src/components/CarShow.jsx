@@ -16,7 +16,13 @@ import { Car } from "./Car";
 import { LightPole } from "./LightPole";
 import { useState } from "react";
 
-export const CarShow = ({ hood, hazard, dayLight }) => {
+export const CarShow = ({
+  hood,
+  hazard,
+  dayLight,
+  brakeLight,
+  parkingLight,
+}) => {
   return (
     <>
       <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
@@ -80,7 +86,13 @@ export const CarShow = ({ hood, hazard, dayLight }) => {
         {(texture) => (
           <>
             <Environment map={texture} />
-            <Car hood={hood} hazard={hazard} dayLight={dayLight} />
+            <Car
+              hood={hood}
+              hazard={hazard}
+              dayLight={dayLight}
+              brakeLight={brakeLight}
+              parkingLight={parkingLight}
+            />
           </>
         )}
       </CubeCamera>{" "}

@@ -4763,7 +4763,7 @@
 					"emissiveStrength":8.30765426158905
 				}
 			},
-			"name":"sw222_amg_texture9.001",
+			"name":"sw222_foglight",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.800000011920929,
@@ -4772,29 +4772,6 @@
 					1
 				],
 				"metallicFactor":0,
-				"roughnessFactor":0.8211145401000977
-			}
-		},
-		{
-			"doubleSided":true,
-			"emissiveFactor":[
-				0.35152941942214966,
-				0.9473072290420532,
-				1
-			],
-			"extensions":{
-				"KHR_materials_emissive_strength":{
-					"emissiveStrength":10
-				}
-			},
-			"name":"sw222_foglight",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.35152941942214966,
-					0.9473072290420532,
-					1,
-					1
-				],
 				"roughnessFactor":0
 			}
 		},
@@ -7859,7 +7836,7 @@
 						"TEXCOORD_3":973
 					},
 					"indices":974,
-					"material":53
+					"material":51
 				}
 			]
 		},
@@ -7876,7 +7853,7 @@
 						"TEXCOORD_3":980
 					},
 					"indices":981,
-					"material":54
+					"material":53
 				}
 			]
 		},
@@ -8067,7 +8044,7 @@
 						"TEXCOORD_3":1051
 					},
 					"indices":1052,
-					"material":55
+					"material":54
 				}
 			]
 		},
@@ -8174,7 +8151,7 @@
 						"TEXCOORD_1":1088
 					},
 					"indices":1089,
-					"material":55
+					"material":54
 				}
 			]
 		},
@@ -8264,7 +8241,7 @@
 						"TEXCOORD_1":1118
 					},
 					"indices":1119,
-					"material":55
+					"material":54
 				}
 			]
 		},
@@ -8339,7 +8316,7 @@
 						"TEXCOORD_1":1143
 					},
 					"indices":1144,
-					"material":56
+					"material":55
 				}
 			]
 		},
@@ -8414,7 +8391,7 @@
 						"TEXCOORD_1":1168
 					},
 					"indices":4,
-					"material":57
+					"material":56
 				}
 			]
 		},
@@ -8519,7 +8496,7 @@
 						"TEXCOORD_1":1202
 					},
 					"indices":4,
-					"material":57
+					"material":56
 				}
 			]
 		},
@@ -8673,7 +8650,7 @@
 						"TEXCOORD_3":1255
 					},
 					"indices":1256,
-					"material":58
+					"material":57
 				}
 			]
 		},
@@ -8733,7 +8710,7 @@
 						"TEXCOORD_1":1275
 					},
 					"indices":1276,
-					"material":59
+					"material":58
 				}
 			]
 		},
@@ -8936,7 +8913,7 @@
 						"TEXCOORD_7":1348
 					},
 					"indices":1349,
-					"material":60
+					"material":59
 				}
 			]
 		},
@@ -8978,7 +8955,7 @@
 						"TEXCOORD_7":1370
 					},
 					"indices":1371,
-					"material":61
+					"material":60
 				}
 			]
 		},
@@ -8999,7 +8976,7 @@
 						"TEXCOORD_7":1381
 					},
 					"indices":1382,
-					"material":62
+					"material":61
 				}
 			]
 		},
@@ -9037,7 +9014,7 @@
 						"TEXCOORD_3":1399
 					},
 					"indices":1400,
-					"material":63
+					"material":62
 				}
 			]
 		},
@@ -9187,7 +9164,7 @@
 						"TEXCOORD_1":1448
 					},
 					"indices":1449,
-					"material":64
+					"material":63
 				}
 			]
 		},
@@ -9202,7 +9179,7 @@
 						"TEXCOORD_1":1453
 					},
 					"indices":1449,
-					"material":64
+					"material":63
 				}
 			]
 		},
@@ -9217,7 +9194,7 @@
 						"TEXCOORD_1":1457
 					},
 					"indices":1449,
-					"material":64
+					"material":63
 				}
 			]
 		},
@@ -9232,7 +9209,7 @@
 						"TEXCOORD_1":1461
 					},
 					"indices":1449,
-					"material":64
+					"material":63
 				}
 			]
 		},
@@ -9277,7 +9254,7 @@
 						"TEXCOORD_1":1475
 					},
 					"indices":1476,
-					"material":65
+					"material":64
 				}
 			]
 		},
@@ -9292,7 +9269,7 @@
 						"TEXCOORD_1":1480
 					},
 					"indices":1481,
-					"material":66
+					"material":65
 				}
 			]
 		}

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { Mesh } from "three";
 import * as THREE from "three";
-export const Car = ({ hood, hazard, dayLight }) => {
+export const Car = ({ hood, hazard, dayLight, parkingLight, brakeLight }) => {
   const gltf = useLoader(GLTFLoader, "models/car/MB-w2222/scene.gltf");
 
   useEffect(() => {
@@ -16,24 +16,21 @@ export const Car = ({ hood, hazard, dayLight }) => {
         object.material.envMapIntensity = 20;
       }
     });
-    // if (gltf) {
-    //   gltf.scene.traverse((child) => {
-    //     if (child.isMesh) {
-    //       const material = child.material;
-    //       if (material) {
-    //         // Access the emissive property
-    //         const emissiveColor = material.emissive;
-    //         console.log("Emissive Color:", emissiveColor);
+    group.children[99].children[0].material.emissiveIntensity = 0; // brake lights
 
-    //         // Optionally, modify the emissive color
-    //         material.emissive = new THREE.Color(0xff0000); // Set emissive to red
-    //         material.emissiveIntensity = 0; // Adjust intensity if needed
-    //       }
-    //     }
-    //   });
-    // }
-    group.children[99].children[4].material.emissiveIntensity = 0;
-    group.children[99].children[3].material.emissiveIntensity = 0;
+    group.children[99].children[4].material.emissiveIntensity = 0; // parking lights
+    group.children[99].children[3].material.emissiveIntensity = 0; // parking lights
+
+    group.children[99].children[2].material.emissiveIntensity = 0; // rear Hazard lights
+    group.children[78].children[5].material.emissiveIntensity = 0; // Left mirror and front left light Hazard lights
+    group.children[79].children[5].material.emissiveIntensity = 0; // right mirror Hazard lights
+    // group.children[61].children[2].material.emissiveIntensity = 0; // front left small Hazard lights
+    group.children[62].children[2].material.emissiveIntensity = 0; // front right small Hazard lights
+    group.children[64].children[2].material.emissiveIntensity = 0; // front Right Hazard
+
+    group.children[63].children[4].material.emissiveIntensity = 0; // Left Daylight
+    group.children[64].children[0].material.emissiveIntensity = 0; // Right DayLight
+    group.children[64].children[6].material.emissiveIntensity = 0; // Right DayLight
   }, [gltf]);
 
   const group = gltf.scene.children[0].children[0].children[0];
@@ -82,9 +79,8 @@ export const Car = ({ hood, hazard, dayLight }) => {
     gltf.scene.children[0].children[0].children[0]
   );
   useEffect(() => {
-    group.userData.RearLights = dayLight;
-    console.log("group.userData.RearLights", group.userData.RearLights);
+    group.children[99].children[4].material.emissiveIntensity = dayLight;
+    group.children[99].children[3].material.emissiveIntensity = dayLight;
   }, [dayLight]);
-  // bebin ba emmissive mishe karish kard?
   return <primitive object={gltf.scene} />;
 };
