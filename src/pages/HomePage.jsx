@@ -10,6 +10,7 @@ const HomePage = () => {
   const [dayLight, setDayLight] = useState(0);
   const [brakeLight, setBrakeLight] = useState(0);
   const [parkingLight, setParkingLight] = useState(0);
+  const [wheelSpeed, setWheelSpeed] = useState(0);
 
   return (
     <Suspense fallback={null}>
@@ -20,6 +21,7 @@ const HomePage = () => {
         setBrakeLight={setBrakeLight}
         setParkingLight={setParkingLight}
         setHazardToggle={setHazardToggle}
+        setWheelSpeed={setWheelSpeed}
       />
       <Canvas shadows>
         <CarShow
@@ -31,6 +33,8 @@ const HomePage = () => {
           hazardToggle={hazardToggle}
           setHazard={setHazard}
           setHazardToggle={setHazardToggle}
+          setWheelSpeed={setWheelSpeed}
+          wheelSpeed={wheelSpeed}
         />
       </Canvas>
     </Suspense>

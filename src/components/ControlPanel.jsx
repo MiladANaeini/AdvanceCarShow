@@ -6,6 +6,7 @@ export const ControlPanel = ({
   setBrakeLight,
   setParkingLight,
   setHazardToggle,
+  setWheelSpeed,
 }) => {
   return (
     <>
@@ -30,6 +31,11 @@ export const ControlPanel = ({
           onClick={() => setParkingLight((prev) => (prev === 0 ? 10 : 0))}
         >
           Parking Light
+        </button>
+      </div>
+      <div>
+        <button onClick={() => setWheelSpeed((prev) => (prev === 0 ? 10 : 0))}>
+          Speed
         </button>
       </div>
     </>

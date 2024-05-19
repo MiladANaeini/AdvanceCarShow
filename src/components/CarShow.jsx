@@ -25,6 +25,8 @@ export const CarShow = ({
   setHazard,
   hazardToggle,
   setHazardToggle,
+  wheelSpeed,
+  setWheelSpeed,
 }) => {
   return (
     <>
@@ -98,6 +100,8 @@ export const CarShow = ({
               setHazard={setHazard}
               hazardToggle={hazardToggle}
               setHazardToggle={setHazardToggle}
+              wheelSpeed={wheelSpeed}
+              setWheelSpeed={setWheelSpeed}
             />
           </>
         )}
