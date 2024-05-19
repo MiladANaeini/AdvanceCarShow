@@ -2,7 +2,6 @@ import React from "react";
 
 export const ControlPanel = ({
   setHood,
-  setHazard,
   setDayLight,
   setBrakeLight,
   setParkingLight,

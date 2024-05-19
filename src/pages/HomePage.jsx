@@ -10,6 +10,7 @@ const HomePage = () => {
   const [dayLight, setDayLight] = useState(0);
   const [brakeLight, setBrakeLight] = useState(0);
   const [parkingLight, setParkingLight] = useState(0);
+
   return (
     <Suspense fallback={null}>
       <ControlPanel
