@@ -1,15 +1,20 @@
 import React from "react";
 
-export const ControlPanel = ({ setHood, setHazard, setDayLight }) => {
+export const ControlPanel = ({
+  setHood,
+  setHazard,
+  setDayLight,
+  setBrakeLight,
+  setParkingLight,
+  setHazardToggle,
+}) => {
   return (
     <>
       <div>
         <button onClick={() => setHood((prev) => !prev)}>Hood</button>
       </div>
       <div>
-        <button onClick={() => setHazard((prev) => (prev === 0 ? 10 : 0))}>
-          Hazrd
-        </button>
+        <button onClick={() => setHazardToggle((prev) => !prev)}>Hazrd</button>
       </div>
       <div>
         <button onClick={() => setDayLight((prev) => (prev === 0 ? 10 : 0))}>

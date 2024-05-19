@@ -3,7 +3,15 @@ import React, { useEffect } from "react";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { Mesh } from "three";
 import * as THREE from "three";
-export const Car = ({ hood, hazard, dayLight, parkingLight, brakeLight }) => {
+export const Car = ({
+  hood,
+  hazard,
+  dayLight,
+  parkingLight,
+  brakeLight,
+  setHazard,
+  hazardToggle,
+}) => {
   const gltf = useLoader(GLTFLoader, "models/car/MB-w2222/scene.gltf");
 
   useEffect(() => {
@@ -79,8 +87,36 @@ export const Car = ({ hood, hazard, dayLight, parkingLight, brakeLight }) => {
     gltf.scene.children[0].children[0].children[0]
   );
   useEffect(() => {
-    group.children[99].children[4].material.emissiveIntensity = dayLight;
-    group.children[99].children[3].material.emissiveIntensity = dayLight;
+    group.children[99].children[4].material.emissiveIntensity = parkingLight; // parking Lights
+    group.children[99].children[3].material.emissiveIntensity = parkingLight; // parking Lights
+  }, [parkingLight]);
+  useEffect(() => {
+    group.children[99].children[0].material.emissiveIntensity = brakeLight; // brake lights
+  }, [brakeLight]);
+  useEffect(() => {
+    group.children[63].children[4].material.emissiveIntensity = dayLight; // Left Daylight
+    group.children[64].children[0].material.emissiveIntensity = dayLight; // Right DayLight
+    group.children[64].children[6].material.emissiveIntensity = dayLight; // Right DayLight
   }, [dayLight]);
+  console.log("hazard", hazard);
+  useEffect(() => {
+    let interval;
+    if (hazardToggle) {
+      interval = setInterval(() => {
+        setHazard((prev) => (prev === 0 ? 10 : 0));
+      }, 500);
+    } else {
+      setHazard(0);
+    }
+    return () => clearInterval(interval);
+  }, [hazardToggle]);
+  useEffect(() => {
+    group.children[99].children[2].material.emissiveIntensity = hazard; // rear Hazard lights
+    group.children[78].children[5].material.emissiveIntensity = hazard; // Left mirror and front left light Hazard lights
+    group.children[79].children[5].material.emissiveIntensity = hazard; // right mirror Hazard lights
+    group.children[62].children[2].material.emissiveIntensity = hazard; // front right small Hazard lights
+    group.children[64].children[2].material.emissiveIntensity = hazard; // front Right Hazard
+  }, [hazard]);
+
   return <primitive object={gltf.scene} />;
 };

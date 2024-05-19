@@ -22,6 +22,9 @@ export const CarShow = ({
   dayLight,
   brakeLight,
   parkingLight,
+  setHazard,
+  hazardToggle,
+  setHazardToggle,
 }) => {
   return (
     <>
@@ -92,6 +95,9 @@ export const CarShow = ({
               dayLight={dayLight}
               brakeLight={brakeLight}
               parkingLight={parkingLight}
+              setHazard={setHazard}
+              hazardToggle={hazardToggle}
+              setHazardToggle={setHazardToggle}
             />
           </>
         )}
