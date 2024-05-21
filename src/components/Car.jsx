@@ -24,8 +24,8 @@ export const Car = ({
 
   Hood(group, hood);
 
-  Wheels(group, wheelSpeed, setWheelSpeed);
-  // console.log("gltf.scene", gltf.scene.children[0].children[0].children[0]);
+  Wheels(gltf);
+  console.log("gltf", gltf);
 
   ParkingLights(group, parkingLight);
   BrakeLights(group, brakeLight);
