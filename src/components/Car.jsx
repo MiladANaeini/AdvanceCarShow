@@ -22,9 +22,10 @@ export const Car = ({
   const group = gltf.scene.children[0].children[0].children[0];
   CarGTLFLoader(gltf, group);
 
-  Hood(group, hood);
+  Hood(gltf, hood);
 
-  Wheels(gltf);
+  Wheels(gltf, wheelSpeed);
+  console.log("gltf", gltf.scene.children[0].children[0].children[0]);
   console.log("gltf", gltf);
 
   ParkingLights(group, parkingLight);
