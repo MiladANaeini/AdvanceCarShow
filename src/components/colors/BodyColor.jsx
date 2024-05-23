@@ -1,0 +1,19 @@
+import { useEffect } from "react";
+import * as THREE from "three";
+
+export const BodyColor = (group, bodyColor) => {
+  const black = new THREE.Color(0, 0, 0);
+
+  console.log("bodyColor", bodyColor);
+  useEffect(() => {
+    if (group && group.children[12] && group.children[12].children[11]) {
+      const material = group.children[12].children[11].material;
+      if (material) {
+        material.color.set(bodyColor ? black : new THREE.Color(1, 1, 1)); // Set to black if `bodyColor` is true, white if false
+        material.needsUpdate = true; // Ensure the material updates
+      }
+    }
+  }, [group, bodyColor]);
+
+  return null;
+};

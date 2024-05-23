@@ -28,6 +28,7 @@ export const CarShow = ({
   wheelSpeed,
   setWheelSpeed,
   trunk,
+  bodyColor,
 }) => {
   return (
     <>
@@ -104,6 +105,7 @@ export const CarShow = ({
               setHazardToggle={setHazardToggle}
               wheelSpeed={wheelSpeed}
               setWheelSpeed={setWheelSpeed}
+              bodyColor={bodyColor}
             />
           </>
         )}

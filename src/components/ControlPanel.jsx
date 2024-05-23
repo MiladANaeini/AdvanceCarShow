@@ -8,6 +8,7 @@ export const ControlPanel = ({
   setHazardToggle,
   setWheelSpeed,
   setTrunk,
+  setBodyColor,
 }) => {
   return (
     <>
@@ -19,6 +20,9 @@ export const ControlPanel = ({
       </div>
       <div>
         <button onClick={() => setHazardToggle((prev) => !prev)}>Hazrd</button>
+      </div>
+      <div>
+        <button onClick={() => setBodyColor((prev) => !prev)}>Color</button>
       </div>
       <div>
         <button onClick={() => setDayLight((prev) => (prev === 0 ? 10 : 0))}>
