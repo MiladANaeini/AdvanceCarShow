@@ -7,11 +7,15 @@ export const ControlPanel = ({
   setParkingLight,
   setHazardToggle,
   setWheelSpeed,
+  setTrunk,
 }) => {
   return (
     <>
       <div>
         <button onClick={() => setHood((prev) => !prev)}>Hood</button>
+      </div>
+      <div>
+        <button onClick={() => setTrunk((prev) => !prev)}>Trunk</button>
       </div>
       <div>
         <button onClick={() => setHazardToggle((prev) => !prev)}>Hazrd</button>

@@ -5,6 +5,7 @@ import { ControlPanel } from "../components/ControlPanel";
 
 const HomePage = () => {
   const [hood, setHood] = useState(false);
+  const [trunk, setTrunk] = useState(false);
   const [hazard, setHazard] = useState(0);
   const [hazardToggle, setHazardToggle] = useState(false);
   const [dayLight, setDayLight] = useState(0);
@@ -16,6 +17,7 @@ const HomePage = () => {
     <Suspense fallback={null}>
       <ControlPanel
         setHood={setHood}
+        setTrunk={setTrunk}
         setHazard={setHazard}
         setDayLight={setDayLight}
         setBrakeLight={setBrakeLight}
@@ -26,6 +28,7 @@ const HomePage = () => {
       <Canvas shadows>
         <CarShow
           hood={hood}
+          trunk={trunk}
           hazard={hazard}
           dayLight={dayLight}
           brakeLight={brakeLight}

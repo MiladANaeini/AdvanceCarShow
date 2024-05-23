@@ -26,5 +26,7 @@ export const CarGTLFLoader = (gltf, group) => {
     group.children[63].children[4].material.emissiveIntensity = 0; // Left Daylight
     group.children[63].children[0].material.emissiveIntensity = 0; // Right DayLight
     group.children[63].children[6].material.emissiveIntensity = 0; // Right DayLight
+
+    group.children[12].children[2].material.emissiveIntensity = 0; // Trunk Light
   }, [gltf]);
 };

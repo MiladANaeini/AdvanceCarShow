@@ -7,6 +7,7 @@ import { BrakeLights } from "./carLights/BrakeLights";
 import { ParkingLights } from "./carLights/ParkingLights";
 import { Wheels } from "./carMovement/Wheels";
 import { Hood } from "./carParts/Hood";
+import { Trunk } from "./carParts/Trunk";
 export const Car = ({
   hood,
   hazard,
@@ -15,7 +16,7 @@ export const Car = ({
   brakeLight,
   setHazard,
   hazardToggle,
-  setWheelSpeed,
+  trunk,
   wheelSpeed,
 }) => {
   const gltf = useLoader(GLTFLoader, "models/car/MB-w2222/scene.gltf");
@@ -23,6 +24,7 @@ export const Car = ({
   CarGTLFLoader(gltf, group);
 
   Hood(gltf, hood);
+  Trunk(gltf, trunk, group);
 
   Wheels(gltf, wheelSpeed);
   console.log("gltf", gltf.scene.children[0].children[0].children[0]);

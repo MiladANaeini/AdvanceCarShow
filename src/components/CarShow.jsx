@@ -27,6 +27,7 @@ export const CarShow = ({
   setHazardToggle,
   wheelSpeed,
   setWheelSpeed,
+  trunk,
 }) => {
   return (
     <>
@@ -93,6 +94,7 @@ export const CarShow = ({
             <Environment map={texture} />
             <Car
               hood={hood}
+              trunk={trunk}
               hazard={hazard}
               dayLight={dayLight}
               brakeLight={brakeLight}
