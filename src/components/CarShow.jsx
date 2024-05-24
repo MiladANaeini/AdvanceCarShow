@@ -14,7 +14,7 @@ import { BlendFunction } from "postprocessing";
 import { Ground } from "./Ground";
 import { Car } from "./Car";
 import { LightPole } from "./LightPole";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export const CarShow = ({
   hood,
@@ -30,10 +30,39 @@ export const CarShow = ({
   trunk,
   bodyColor,
 }) => {
+  const [cameraPosition, setCameraPositon] = useState([3, 2, 5]);
+  const [cameraRoatation, setCameraRoatation] = useState([0, 0, 0]);
+  const trunkCameraPosition = [-1.0122, 1.5995, -4.537925];
+  const trunkCameraRoatation = [-2.605, -0.419, -2.904];
+  const hoodCameraPerspective = [0.8, 1.8, 4];
+  const mainCameraPosition = [3, 2, 5];
+  const mainCameraRoatation = [0, 0, 0];
+  useEffect(() => {
+    if (hood) {
+      setCameraPositon(hoodCameraPerspective);
+    } else {
+      setCameraPositon(mainCameraPosition);
+    }
+  }, [hood]);
+  useEffect(() => {
+    if (trunk) {
+      setCameraPositon(trunkCameraPosition);
+      setCameraRoatation(trunkCameraRoatation);
+    } else {
+      setCameraPositon(mainCameraPosition);
+      setCameraRoatation(mainCameraRoatation);
+    }
+  }, [trunk]);
+
   return (
     <>
       <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
-      <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
+      <PerspectiveCamera
+        makeDefault
+        fov={50}
+        position={cameraPosition}
+        rotation={cameraRoatation}
+      />
       <color args={[0, 0, 0]} attach={"background"} />
       <spotLight
         color={[1, 0.25, 0, 7]}

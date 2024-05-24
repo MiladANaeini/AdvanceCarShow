@@ -4,7 +4,6 @@ import * as THREE from "three";
 export const BodyColor = (group, bodyColor) => {
   const black = new THREE.Color(0, 0, 0);
 
-  console.log("bodyColor", bodyColor);
   useEffect(() => {
     if (group && group.children[12] && group.children[12].children[11]) {
       const material = group.children[12].children[11].material;
