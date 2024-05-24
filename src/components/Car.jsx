@@ -30,8 +30,8 @@ export const Car = ({
   BodyColor(group, bodyColor);
 
   Wheels(gltf, wheelSpeed);
-  console.log("gltf", gltf.scene.children[0].children[0].children[0]);
-  console.log("gltf", gltf);
+  // console.log("gltf", gltf.scene.children[0].children[0].children[0]);
+  // console.log("gltf", gltf);
 
   ParkingLights(group, parkingLight);
   BrakeLights(group, brakeLight);

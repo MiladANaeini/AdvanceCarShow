@@ -40,17 +40,11 @@ export const CarShow = ({
   useEffect(() => {
     if (hood) {
       setCameraPositon(hoodCameraPerspective);
-    } else {
-      setCameraPositon(mainCameraPosition);
     }
   }, [hood]);
   useEffect(() => {
     if (trunk) {
       setCameraPositon(trunkCameraPosition);
-      setCameraRoatation(trunkCameraRoatation);
-    } else {
-      setCameraPositon(mainCameraPosition);
-      setCameraRoatation(mainCameraRoatation);
     }
   }, [trunk]);
 
