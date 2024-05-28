@@ -18,8 +18,8 @@ canvas {
 
 @layer utilities {
   .btn {
-    @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#1470b6]
-     focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+    @apply text-black bg-gray-300
+     active:scale-75 focus:first:bg-slate-600 focus:last:bg-gray-300 rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center transition duration-200 hover:scale-110;
   }
   .btn-disabled {
     @apply text-gray-200 bg-gradient-to-r from-slate-500 to-slate-600 opacity-30 focus:ring-4
@@ -30,7 +30,8 @@ canvas {
      focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  font-normal;
   }
   .card-box {
-    @apply bg-white text-center py-4 px-6 flex  justify-center flex-col gap-4 rounded-md max-w-5xl w-full shadow-lg;
+    @apply bg-white bg-opacity-30 hover:bg-opacity-100 transition duration-500
+      text-center flex  py-4 px-6 justify-center  gap-4 rounded-md max-w-max absolute z-50;
   }
 }
 .neo-brutalism-blue {
@@ -45,4 +46,14 @@ canvas {
   border-radius: 7px;
   border: #2b77e7;
   box-shadow: 10px 10px 5px rgba(4, 128, 170, 0.434);
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: x-large;
+}
+.material-symbols-outlined:hover {
+  font-variation-settings: "FILL" 10, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: x-large;
+  color: #ff0000;
+  transition-duration: 500ms;
 }

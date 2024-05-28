@@ -16,17 +16,19 @@ const HomePage = () => {
 
   return (
     <Suspense fallback={null}>
-      <ControlPanel
-        setHood={setHood}
-        setTrunk={setTrunk}
-        setHazard={setHazard}
-        setDayLight={setDayLight}
-        setBrakeLight={setBrakeLight}
-        setParkingLight={setParkingLight}
-        setHazardToggle={setHazardToggle}
-        setWheelSpeed={setWheelSpeed}
-        setBodyColor={setBodyColor}
-      />
+      <div className="flex justify-center">
+        <ControlPanel
+          setHood={setHood}
+          setTrunk={setTrunk}
+          setHazard={setHazard}
+          setDayLight={setDayLight}
+          setBrakeLight={setBrakeLight}
+          setParkingLight={setParkingLight}
+          setHazardToggle={setHazardToggle}
+          setWheelSpeed={setWheelSpeed}
+          setBodyColor={setBodyColor}
+        />
+      </div>
       <Canvas shadows>
         <CarShow
           hood={hood}

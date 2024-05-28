@@ -11,41 +11,62 @@ export const ControlPanel = ({
   setBodyColor,
 }) => {
   return (
-    <>
+    <div className=" card-box mt-2">
       <div>
-        <button onClick={() => setHood((prev) => !prev)}>Hood</button>
+        <button className="btn" onClick={() => setHood((prev) => !prev)}>
+          Hood
+        </button>
       </div>
       <div>
-        <button onClick={() => setTrunk((prev) => !prev)}>Trunk</button>
+        <button className="btn" onClick={() => setTrunk((prev) => !prev)}>
+          Trunk
+        </button>
       </div>
       <div>
-        <button onClick={() => setHazardToggle((prev) => !prev)}>Hazrd</button>
+        <button
+          className="btn material-symbols-outlined text-red-600"
+          onClick={() => setHazardToggle((prev) => !prev)}
+        >
+          <span>warning</span>{" "}
+        </button>
       </div>
       <div>
-        <button onClick={() => setBodyColor((prev) => !prev)}>Color</button>
+        <button className="btn" onClick={() => setBodyColor((prev) => !prev)}>
+          Color
+        </button>
       </div>
       <div>
-        <button onClick={() => setDayLight((prev) => (prev === 0 ? 10 : 0))}>
+        <button
+          className="btn"
+          onClick={() => setDayLight((prev) => (prev === 0 ? 10 : 0))}
+        >
           Day Light
         </button>
       </div>
       <div>
-        <button onClick={() => setBrakeLight((prev) => (prev === 0 ? 10 : 0))}>
+        <button
+          className="btn"
+          onClick={() => setBrakeLight((prev) => (prev === 0 ? 10 : 0))}
+        >
           Brake Light
         </button>
       </div>
       <div>
         <button
+          className="btn"
           onClick={() => setParkingLight((prev) => (prev === 0 ? 10 : 0))}
         >
           Parking Light
         </button>
       </div>
       <div>
-        <button onClick={() => setWheelSpeed((prev) => (prev === 0 ? 10 : 0))}>
-          Speed
+        <button
+          className="btn material-symbols-outlined"
+          onClick={() => setWheelSpeed((prev) => (prev === 0 ? 10 : 0))}
+        >
+          <span>slow_motion_video</span>{" "}
         </button>
       </div>
-    </>
+    </div>
   );
 };
