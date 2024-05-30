@@ -1,5 +1,5 @@
-import React from "react";
-
+import { useRef } from "react";
+import { ColorsList } from "./colors/ColorsList";
 export const ControlPanel = ({
   setHood,
   setDayLight,
@@ -9,7 +9,10 @@ export const ControlPanel = ({
   setWheelSpeed,
   setTrunk,
   setBodyColor,
+  setShowColors,
+  showColors,
 }) => {
+  const paletteButtonRef = useRef(null);
   return (
     <div className=" card-box mt-2">
       <div>
@@ -31,10 +34,19 @@ export const ControlPanel = ({
         </button>
       </div>
       <div>
+        <button
+          ref={paletteButtonRef}
+          className="btn material-symbols-outlined"
+          onClick={() => setShowColors((prev) => !prev)}
+        >
+          palette
+        </button>
+      </div>
+      {/* <div>
         <button className="btn" onClick={() => setBodyColor((prev) => !prev)}>
           Color
         </button>
-      </div>
+      </div> */}
       <div>
         <button
           className="btn"
@@ -67,6 +79,12 @@ export const ControlPanel = ({
           <span>slow_motion_video</span>{" "}
         </button>
       </div>
+      <ColorsList
+        showColors={showColors}
+        setBodyColor={setBodyColor}
+        paletteButtonRef={paletteButtonRef}
+        setShowColors={setShowColors}
+      />
     </div>
   );
 };

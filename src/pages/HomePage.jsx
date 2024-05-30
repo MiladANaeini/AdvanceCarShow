@@ -2,11 +2,14 @@ import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { CarShow } from "../components/CarShow";
 import { ControlPanel } from "../components/ControlPanel";
+import { ColorsList } from "../components/colors/ColorsList";
+import * as THREE from "three";
 
 const HomePage = () => {
   const [hood, setHood] = useState(false);
   const [trunk, setTrunk] = useState(false);
-  const [bodyColor, setBodyColor] = useState(false);
+  const [bodyColor, setBodyColor] = useState(new THREE.Color("#fff"));
+  const [showColors, setShowColors] = useState(false);
   const [hazard, setHazard] = useState(0);
   const [hazardToggle, setHazardToggle] = useState(false);
   const [dayLight, setDayLight] = useState(0);
@@ -27,6 +30,8 @@ const HomePage = () => {
           setHazardToggle={setHazardToggle}
           setWheelSpeed={setWheelSpeed}
           setBodyColor={setBodyColor}
+          setShowColors={setShowColors}
+          showColors={showColors}
         />
       </div>
       <Canvas shadows>

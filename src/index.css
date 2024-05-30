@@ -33,6 +33,10 @@ canvas {
     @apply bg-white bg-opacity-30 hover:bg-opacity-100 transition duration-500
       text-center flex  py-4 px-6 justify-center  gap-4 rounded-md max-w-max absolute z-50;
   }
+  .colors-card-box {
+    @apply bg-white bg-opacity-30 hover:bg-opacity-100 transition duration-500
+      text-center flex py-4 px-6 justify-center gap-4 rounded-md max-w-max z-50 absolute;
+  }
 }
 .neo-brutalism-blue {
   position: relative;
@@ -56,4 +60,11 @@ canvas {
   font-size: x-large;
   color: #ff0000;
   transition-duration: 500ms;
+}
+
+.car-colors {
+  position: relative;
+  height: 1.5rem;
+  width: 1.8rem;
+  cursor: pointer;
 }
