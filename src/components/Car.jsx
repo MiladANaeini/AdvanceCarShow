@@ -22,10 +22,11 @@ export const Car = ({
   trunk,
   wheelSpeed,
   bodyColor,
+  nextCar,
 }) => {
   const gltf = useLoader(GLTFLoader, "models/car/MB-w2222/scene.gltf");
   const group = gltf.scene.children[0].children[0].children[0];
-  CarGTLFLoader(gltf, group, dayLight);
+  CarGTLFLoader(gltf, group, nextCar, wheelSpeed);
 
   Hood(gltf, hood);
   Trunk(gltf, trunk, group);

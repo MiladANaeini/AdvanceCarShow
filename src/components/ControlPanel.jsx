@@ -10,6 +10,7 @@ export const ControlPanel = ({
   setBodyColor,
   setShowColors,
   showColors,
+  setNextCar,
 }) => {
   return (
     <div className=" card-box mt-2">
@@ -39,11 +40,6 @@ export const ControlPanel = ({
           palette
         </button>
       </div>
-      {/* <div>
-        <button className="btn" onClick={() => setBodyColor((prev) => !prev)}>
-          Color
-        </button>
-      </div> */}
       <div>
         <button
           className="btn"
@@ -76,6 +72,17 @@ export const ControlPanel = ({
           <span>slow_motion_video</span>{" "}
         </button>
       </div>
+      {/* <div>
+        <button
+          className="btn"
+          onClick={() => {
+            setNextCar((prev) => !prev),
+              setWheelSpeed((prev) => (prev === 0 ? 10 : 0));
+          }}
+        >
+          Next Car
+        </button>
+      </div> */}
       <ColorsList
         showColors={showColors}
         setBodyColor={setBodyColor}

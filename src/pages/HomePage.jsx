@@ -9,6 +9,7 @@ const HomePage = () => {
   const [trunk, setTrunk] = useState(false);
   const [bodyColor, setBodyColor] = useState(new THREE.Color("#fff"));
   const [showColors, setShowColors] = useState(false);
+  const [nextCar, setNextCar] = useState(false);
   const [hazard, setHazard] = useState(0);
   const [hazardToggle, setHazardToggle] = useState(false);
   const [dayLight, setDayLight] = useState(0);
@@ -31,6 +32,7 @@ const HomePage = () => {
           setBodyColor={setBodyColor}
           setShowColors={setShowColors}
           showColors={showColors}
+          setNextCar={setNextCar}
         />
       </div>
       <Canvas shadows>
@@ -47,6 +49,7 @@ const HomePage = () => {
           setHazardToggle={setHazardToggle}
           setWheelSpeed={setWheelSpeed}
           wheelSpeed={wheelSpeed}
+          nextCar={nextCar}
         />
       </Canvas>
     </Suspense>
