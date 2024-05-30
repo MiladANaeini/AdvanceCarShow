@@ -1,24 +1,7 @@
-import { useEffect, useRef } from "react";
-
-export const ColorsList = ({
-  showColors,
-  setBodyColor,
-  paletteButtonRef,
-  setShowColors,
-}) => {
-  const paletteButtonPosition =
-    paletteButtonRef.current?.getBoundingClientRect();
-  console.log("showColors", showColors);
+export const ColorsList = ({ showColors, setBodyColor }) => {
   if (showColors) {
     return (
-      <div
-        className={`colors-card-box transition-transform transform`}
-        style={{
-          position: "absolute",
-          top: paletteButtonPosition.bottom + window.scrollY - 25,
-          left: paletteButtonPosition.left + window.scrollX - 50,
-        }}
-      >
+      <div className={`colors-card-box transition-transform transform mt-16`}>
         {" "}
         <div
           className="car-colors bg-black"

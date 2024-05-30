@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { ColorsList } from "./colors/ColorsList";
 export const ControlPanel = ({
   setHood,
@@ -12,7 +11,6 @@ export const ControlPanel = ({
   setShowColors,
   showColors,
 }) => {
-  const paletteButtonRef = useRef(null);
   return (
     <div className=" card-box mt-2">
       <div>
@@ -35,7 +33,6 @@ export const ControlPanel = ({
       </div>
       <div>
         <button
-          ref={paletteButtonRef}
           className="btn material-symbols-outlined"
           onClick={() => setShowColors((prev) => !prev)}
         >
@@ -82,7 +79,6 @@ export const ControlPanel = ({
       <ColorsList
         showColors={showColors}
         setBodyColor={setBodyColor}
-        paletteButtonRef={paletteButtonRef}
         setShowColors={setShowColors}
       />
     </div>

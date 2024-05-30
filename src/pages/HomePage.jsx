@@ -2,7 +2,6 @@ import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { CarShow } from "../components/CarShow";
 import { ControlPanel } from "../components/ControlPanel";
-import { ColorsList } from "../components/colors/ColorsList";
 import * as THREE from "three";
 
 const HomePage = () => {
