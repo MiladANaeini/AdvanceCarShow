@@ -40,5 +40,9 @@ export const Car = ({
   DayLights(group, dayLight);
   useHazardLights({ hazardToggle, setHazard, group, hazard });
 
-  return <primitive object={gltf.scene} />;
+  return (
+    <>
+      <primitive object={gltf.scene} />;
+    </>
+  );
 };
