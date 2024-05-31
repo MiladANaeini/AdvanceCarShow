@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import { useAnimations } from "@react-three/drei";
 
-export const Hood = (gltf, hood) => {
+export const FrontLeftDoor = (gltf, fLDoor, group) => {
   const { actions } = useAnimations(gltf.animations, gltf.scene);
   const [mixer] = useState(() => new THREE.AnimationMixer());
 
@@ -13,15 +13,18 @@ export const Hood = (gltf, hood) => {
       return;
     }
 
-    const actionName = "sw222_hood_2013_sw222_paint_0Action";
+    const actionName = "sw222_door_FL_chrome_2_2_sw222_paint_0Action";
     const action = actions[actionName];
     if (action) {
       action.reset().setLoop(THREE.LoopOnce, 1);
 
-      if (hood) {
+      if (fLDoor) {
         action.timeScale = 1; // Play forward
         action.clampWhenFinished = true; // Ensure the animation remains at the last frame
         action.play();
+        // setTimeout(() => {
+        //   group.children[12].children[2].material.emissiveIntensity = 10; // Trunk Light
+        // }, 1500);
       } else {
         action.timeScale = -1; // Play backward
         action.clampWhenFinished = true; // Ensure the animation remains at the first frame
@@ -35,7 +38,7 @@ export const Hood = (gltf, hood) => {
     } else {
       console.warn(`Action '${actionName}' not found!`);
     }
-  }, [actions, hood]);
+  }, [actions, fLDoor]);
 
   useFrame((state, delta) => {
     mixer.update(delta);

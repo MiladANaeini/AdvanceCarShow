@@ -5,14 +5,12 @@ import { useAnimations } from "@react-three/drei";
 export const Trunk = (gltf, trunk, group) => {
   const { actions } = useAnimations(gltf.animations, gltf.scene);
   const [mixer] = useState(() => new THREE.AnimationMixer());
-
   useEffect(() => {
     if (!actions) {
       console.warn("No actions found!");
       return;
     }
-
-    const actionName = "Trunk";
+    const actionName = "Trunk.001";
     const action = actions[actionName];
     if (action) {
       action.reset().setLoop(THREE.LoopOnce, 1);

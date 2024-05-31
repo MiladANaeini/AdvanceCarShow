@@ -30,6 +30,7 @@ export const CarShow = ({
   trunk,
   bodyColor,
   nextCar,
+  fLDoor,
 }) => {
   const [cameraPosition, setCameraPositon] = useState([3, 2, 5]);
   const [cameraRoatation, setCameraRoatation] = useState([0, 0, 0]);
@@ -131,6 +132,7 @@ export const CarShow = ({
               setWheelSpeed={setWheelSpeed}
               bodyColor={bodyColor}
               nextCar={nextCar}
+              fLDoor={fLDoor}
             />
           </>
         )}

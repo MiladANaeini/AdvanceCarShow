@@ -10,6 +10,7 @@ import { Hood } from "./carParts/Hood";
 import { Trunk } from "./carParts/Trunk";
 import { BodyColor } from "./colors/BodyColor";
 import { useEffect } from "react";
+import { FrontLeftDoor } from "./carParts/FrontLeftDoor";
 
 export const Car = ({
   hood,
@@ -21,6 +22,7 @@ export const Car = ({
   hazardToggle,
   trunk,
   wheelSpeed,
+  fLDoor,
   bodyColor,
   nextCar,
 }) => {
@@ -30,10 +32,11 @@ export const Car = ({
 
   Hood(gltf, hood);
   Trunk(gltf, trunk, group);
+  FrontLeftDoor(gltf, fLDoor);
   BodyColor(group, bodyColor);
 
   Wheels(gltf, wheelSpeed);
-  // console.log("gltf", gltf.scene.children[0].children[0].children[0]);
+  console.log("gltf", gltf.scene.children[0].children[0].children[0]);
   // console.log("gltf", gltf);
 
   ParkingLights(group, parkingLight);

@@ -11,6 +11,7 @@ export const ControlPanel = ({
   setShowColors,
   showColors,
   setNextCar,
+  setFLDoor,
 }) => {
   return (
     <div className=" card-box mt-2">
@@ -22,6 +23,11 @@ export const ControlPanel = ({
       <div>
         <button className="btn" onClick={() => setTrunk((prev) => !prev)}>
           Trunk
+        </button>
+      </div>
+      <div>
+        <button className="btn" onClick={() => setFLDoor((prev) => !prev)}>
+          FL-Door
         </button>
       </div>
       <div>

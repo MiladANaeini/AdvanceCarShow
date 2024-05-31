@@ -7,6 +7,7 @@ import * as THREE from "three";
 const HomePage = () => {
   const [hood, setHood] = useState(false);
   const [trunk, setTrunk] = useState(false);
+  const [fLDoor, setFLDoor] = useState(false);
   const [bodyColor, setBodyColor] = useState(new THREE.Color("#fff"));
   const [showColors, setShowColors] = useState(false);
   const [nextCar, setNextCar] = useState(false);
@@ -33,6 +34,7 @@ const HomePage = () => {
           setShowColors={setShowColors}
           showColors={showColors}
           setNextCar={setNextCar}
+          setFLDoor={setFLDoor}
         />
       </div>
       <Canvas shadows>
@@ -50,6 +52,7 @@ const HomePage = () => {
           setWheelSpeed={setWheelSpeed}
           wheelSpeed={wheelSpeed}
           nextCar={nextCar}
+          fLDoor={fLDoor}
         />
       </Canvas>
     </Suspense>
