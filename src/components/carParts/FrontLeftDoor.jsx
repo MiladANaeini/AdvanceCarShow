@@ -22,12 +22,15 @@ export const FrontLeftDoor = (gltf, fLDoor, group) => {
         action.timeScale = 1; // Play forward
         action.clampWhenFinished = true; // Ensure the animation remains at the last frame
         action.play();
-        // setTimeout(() => {
-        //   group.children[12].children[2].material.emissiveIntensity = 10; // Trunk Light
-        // }, 1500);
+        setTimeout(() => {
+          group.children[19].children[0].material.emissiveIntensity = 1; // Dash Screen Light
+          group.children[19].children[10].material.emissiveIntensity = 10; // Dash Screen Trunk Light
+        }, 1500);
       } else {
         action.timeScale = -1; // Play backward
         action.clampWhenFinished = true; // Ensure the animation remains at the first frame
+        group.children[19].children[0].material.emissiveIntensity = 0; // Dash Screen Light
+        group.children[19].children[10].material.emissiveIntensity = 0; // Dash Screen Trunk Light
         action.time = action.getClip().duration; // Set time to the end for reverse playback
         action.play();
       }

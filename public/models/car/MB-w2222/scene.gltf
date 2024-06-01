@@ -4730,6 +4730,16 @@
 		},
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				0.7881816833119922,
+				0.8003684231371878,
+				1
+			],
+			"extensions":{
+				"KHR_materials_emissive_strength":{
+					"emissiveStrength":1.598223090171814
+				}
+			},
 			"name":"etk800_screen",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[

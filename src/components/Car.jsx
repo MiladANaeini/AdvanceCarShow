@@ -32,7 +32,7 @@ export const Car = ({
 
   Hood(gltf, hood);
   Trunk(gltf, trunk, group);
-  FrontLeftDoor(gltf, fLDoor);
+  FrontLeftDoor(gltf, fLDoor, group);
   BodyColor(group, bodyColor);
 
   Wheels(gltf, wheelSpeed);
