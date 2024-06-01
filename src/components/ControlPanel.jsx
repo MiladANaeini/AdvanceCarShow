@@ -83,7 +83,7 @@ export const ControlPanel = ({
           className="btn"
           onClick={() => {
             setNextCar((prev) => !prev),
-              setWheelSpeed((prev) => (prev === 0 ? 10 : 0));
+              setWheelSpeed((prev) => (prev === 0 ? 0.8 : 0));
           }}
         >
           Next Car

@@ -1,11 +1,16 @@
 import { useEffect, useRef } from "react";
 import { Mesh, Vector3 } from "three";
 import { useFrame } from "@react-three/fiber";
-import { Wheels } from "./carMovement/Wheels";
 
-export const CarGTLFLoader = (gltf, group, nextCar, wheelSpeed) => {
+export const CarGTLFLoader = (gltf, group, nextCar) => {
   const targetPosition = useRef(new Vector3(0, -0.035, 0));
   const currentPosition = useRef(new Vector3(0, -0.035, 0));
+  const lerpFactor = useRef(0); // Factor for easing
+  const speed = 0.045; // Adjust speed as needed
+
+  const cubicEaseInOut = (t) => {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  };
   useEffect(() => {
     gltf.scene.scale.set(1, 1, 1);
     gltf.scene.position.set(0, -0.035, 0);
@@ -37,17 +42,26 @@ export const CarGTLFLoader = (gltf, group, nextCar, wheelSpeed) => {
     group.children[19].children[10].material.emissiveIntensity = 0; // Dash screen
   }, [gltf]);
 
-  Wheels(gltf, wheelSpeed);
   useEffect(() => {
     // Change target position based on nextCar state
-    targetPosition.current = nextCar
-      ? new Vector3(0, -0.035, 5)
-      : new Vector3(0, -0.035, 0);
+    setTimeout(() => {
+      targetPosition.current = nextCar
+        ? new Vector3(0, -0.035, 15)
+        : new Vector3(0, -0.035, 0);
+      lerpFactor.current = 0; // Reset lerp factor for easing
+    }, 100);
   }, [nextCar]);
 
   useFrame((state, delta) => {
-    // Smoothly transition the car's position towards the target position
-    currentPosition.current.lerp(targetPosition.current, delta * 1); // Adjust the factor to control the speed
+    // Increase lerp factor based on the speed
+    lerpFactor.current = Math.min(1, lerpFactor.current + speed * delta);
+    const easedLerpFactor = cubicEaseInOut(lerpFactor.current);
+    // Smoothly transition the car's position towards the target position with easing
+    currentPosition.current.lerpVectors(
+      currentPosition.current,
+      targetPosition.current,
+      easedLerpFactor
+    );
     gltf.scene.position.copy(currentPosition.current);
   });
 };
