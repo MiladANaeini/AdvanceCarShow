@@ -88,7 +88,19 @@ export const CarShow = ({
         intensity={150}
         angle={1.5}
         penumbra={0.5}
-        position={[3, 2, 4]}
+        position={[3, 2, 3]}
+        castShadow
+        shadow-bias={-0.000005}
+        shadow-mapSize-width={64}
+        shadow-mapSize-height={64}
+      />
+      {/* logo light */}
+      <spotLight
+        color={[0.14, 0.5, 1]}
+        intensity={40}
+        angle={1.5}
+        penumbra={0.5}
+        position={[-8, 3, -2]}
         castShadow
         shadow-bias={-0.000005}
         shadow-mapSize-width={128}
