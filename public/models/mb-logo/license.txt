@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mercedes-Benz Logo
+* source:	https://sketchfab.com/3d-models/mercedes-benz-logo-b20a1a67c1344d358e9961f5a627c35a
+* author:	XhydraTor21 (https://sketchfab.com/XhydraTor21)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mercedes-Benz Logo" (https://sketchfab.com/3d-models/mercedes-benz-logo-b20a1a67c1344d358e9961f5a627c35a) by XhydraTor21 (https://sketchfab.com/XhydraTor21) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

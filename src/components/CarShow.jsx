@@ -15,6 +15,7 @@ import { Ground } from "./Ground";
 import { Car } from "./Car";
 import { LightPole } from "./LightPole";
 import { useEffect, useState, useRef } from "react";
+import { MBLogo } from "./MBLogo";
 
 export const CarShow = ({
   hood,
@@ -138,6 +139,7 @@ export const CarShow = ({
         )}
       </CubeCamera>{" "}
       <LightPole />
+      <MBLogo />
       <Ground />
     </>
   );
