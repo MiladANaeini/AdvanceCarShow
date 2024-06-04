@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ColorsList } from "./colors/ColorsList";
 export const ControlPanel = ({
   setHood,
@@ -12,7 +13,15 @@ export const ControlPanel = ({
   showColors,
   setNextCar,
   setFLDoor,
+  wheelSpeed,
 }) => {
+  // const Cars = ["S-Class-AMG-W222", "SL63-AMG"];
+  // const nextCar= (i = 0)=>{
+  //   i++;
+  //   setNextCar(Cars[i])
+  // }
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
   return (
     <div className=" card-box mt-2">
       <div>
@@ -73,17 +82,26 @@ export const ControlPanel = ({
       <div>
         <button
           className="btn material-symbols-outlined"
-          onClick={() => setWheelSpeed((prev) => (prev === 0 ? 10 : 0))}
+          onClick={() => {
+            setButtonDisabled((prev) => !prev),
+              setWheelSpeed((prev) => (prev === 0 ? 10 : 0));
+          }}
         >
           <span>slow_motion_video</span>{" "}
         </button>
       </div>
       {/* <div>
         <button
-          className="btn"
+          disabled={buttonDisabled}
+          className={`${buttonDisabled ? "btn-disabled" : "btn"}`}
           onClick={() => {
-            setNextCar((prev) => !prev),
-              setWheelSpeed((prev) => (prev === 0 ? 0.8 : 0));
+            setFLDoor(false),
+              setButtonDisabled(true),
+              setHazardToggle(false),
+              setHood(false),
+              setTrunk(false),
+              setNextCar((prev) => !prev),
+              setWheelSpeed(0.8);
           }}
         >
           Next Car

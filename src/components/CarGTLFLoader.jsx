@@ -21,25 +21,29 @@ export const CarGTLFLoader = (gltf, group, nextCar, setWheelSpeed) => {
         object.material.envMapIntensity = 20;
       }
     });
+    if (!nextCar) {
+      group.children[96].children[0].material.emissiveIntensity = 0; // brake lights
 
-    group.children[96].children[0].material.emissiveIntensity = 0; // brake lights
+      group.children[96].children[4].material.emissiveIntensity = 0; // parking lights
+      group.children[96].children[3].material.emissiveIntensity = 0; // parking lights
 
-    group.children[96].children[4].material.emissiveIntensity = 0; // parking lights
-    group.children[96].children[3].material.emissiveIntensity = 0; // parking lights
+      group.children[96].children[2].material.emissiveIntensity = 0; // rear Hazard lights
+      group.children[22].children[0].children[19].material.emissiveIntensity = 0; // Left mirror and front left light Hazard lights
+      group.children[76].children[5].material.emissiveIntensity = 0; // right mirror Hazard lights
+      group.children[60].children[2].material.emissiveIntensity = 0; // front right small Hazard lights
+      group.children[63].children[2].material.emissiveIntensity = 0; // front Right Hazard
 
-    group.children[96].children[2].material.emissiveIntensity = 0; // rear Hazard lights
-    group.children[22].children[0].children[19].material.emissiveIntensity = 0; // Left mirror and front left light Hazard lights
-    group.children[76].children[5].material.emissiveIntensity = 0; // right mirror Hazard lights
-    group.children[60].children[2].material.emissiveIntensity = 0; // front right small Hazard lights
-    group.children[63].children[2].material.emissiveIntensity = 0; // front Right Hazard
+      group.children[63].children[4].material.emissiveIntensity = 0; // Left Daylight
+      group.children[63].children[0].material.emissiveIntensity = 0; // Right DayLight
+      group.children[63].children[6].material.emissiveIntensity = 0; // Right DayLight
 
-    group.children[63].children[4].material.emissiveIntensity = 0; // Left Daylight
-    group.children[63].children[0].material.emissiveIntensity = 0; // Right DayLight
-    group.children[63].children[6].material.emissiveIntensity = 0; // Right DayLight
-
-    group.children[12].children[2].material.emissiveIntensity = 0; // Trunk Light
-    group.children[19].children[0].material.emissiveIntensity = 0; // Dash screen
-    group.children[19].children[10].material.emissiveIntensity = 0; // Dash screen
+      group.children[12].children[2].material.emissiveIntensity = 0; // Trunk Light
+      group.children[19].children[0].material.emissiveIntensity = 0; // Dash screen
+      group.children[19].children[10].material.emissiveIntensity = 0; // Dash screen
+    }
+    if (nextCar) {
+      console.log("first");
+    }
   }, [gltf]);
 
   useEffect(() => {
@@ -53,7 +57,7 @@ export const CarGTLFLoader = (gltf, group, nextCar, setWheelSpeed) => {
     if (nextCar) {
       setTimeout(() => {
         gltf.scene.visible = false;
-        setWheelSpeed((prev) => (prev === 0 ? 0.8 : 0));
+        setWheelSpeed(0);
       }, 6000);
     }
   }, [nextCar]);

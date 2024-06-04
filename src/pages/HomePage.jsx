@@ -35,6 +35,7 @@ const HomePage = () => {
           showColors={showColors}
           setNextCar={setNextCar}
           setFLDoor={setFLDoor}
+          wheelSpeed={wheelSpeed}
         />
       </div>
       <Canvas shadows>
