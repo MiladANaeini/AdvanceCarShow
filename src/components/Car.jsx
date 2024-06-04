@@ -25,10 +25,11 @@ export const Car = ({
   fLDoor,
   bodyColor,
   nextCar,
+  setWheelSpeed,
 }) => {
   const gltf = useLoader(GLTFLoader, "models/car/MB-w2222/scene.gltf");
   const group = gltf.scene.children[0].children[0].children[0];
-  CarGTLFLoader(gltf, group, nextCar, wheelSpeed);
+  CarGTLFLoader(gltf, group, nextCar, setWheelSpeed);
 
   Hood(gltf, hood);
   Trunk(gltf, trunk, group);
@@ -44,9 +45,5 @@ export const Car = ({
   DayLights(group, dayLight);
   useHazardLights({ hazardToggle, setHazard, group, hazard });
 
-  return (
-    <>
-      <primitive object={gltf.scene} />;
-    </>
-  );
+  return <>{gltf ? <primitive object={gltf.scene} /> : null}</>;
 };

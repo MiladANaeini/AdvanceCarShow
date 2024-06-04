@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Mesh, Vector3 } from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, dispose } from "@react-three/fiber";
 
-export const CarGTLFLoader = (gltf, group, nextCar) => {
+export const CarGTLFLoader = (gltf, group, nextCar, setWheelSpeed) => {
   const targetPosition = useRef(new Vector3(0, -0.035, 0));
   const currentPosition = useRef(new Vector3(0, -0.035, 0));
   const lerpFactor = useRef(0); // Factor for easing
@@ -46,10 +46,16 @@ export const CarGTLFLoader = (gltf, group, nextCar) => {
     // Change target position based on nextCar state
     setTimeout(() => {
       targetPosition.current = nextCar
-        ? new Vector3(0, -0.035, 15)
+        ? new Vector3(0, -0.035, 20)
         : new Vector3(0, -0.035, 0);
       lerpFactor.current = 0; // Reset lerp factor for easing
     }, 100);
+    if (nextCar) {
+      setTimeout(() => {
+        gltf.scene.visible = false;
+        setWheelSpeed((prev) => (prev === 0 ? 0.8 : 0));
+      }, 6000);
+    }
   }, [nextCar]);
 
   useFrame((state, delta) => {
