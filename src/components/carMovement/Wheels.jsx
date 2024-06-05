@@ -40,7 +40,6 @@ export const Wheels = (gltf, wheelSpeed, nextCar) => {
       console.warn("No actions found!");
       return;
     }
-    console.log("actionNames", actionNames);
     const animationActions = actionNames.map((actionName) => {
       const action = actions[actionName];
       if (action) {

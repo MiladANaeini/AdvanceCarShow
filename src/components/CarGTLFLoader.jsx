@@ -139,7 +139,7 @@ export const CarGTLFLoader = (
           // Stop the wheel speed after the car reaches the target position
           setTimeout(() => {
             setWheelSpeed(0);
-          }, duration * 0.65); // Slightly longer than the duration to ensure it stops
+          }, duration * 0.7); // Slightly longer than the duration to ensure it stops
         }, 500); // Adjust timing as needed
       }, duration); // Adjust timing as needed
     }
