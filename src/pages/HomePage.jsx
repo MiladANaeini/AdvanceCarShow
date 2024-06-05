@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { CarShow } from "../components/CarShow";
 import { ControlPanel } from "../components/ControlPanel";
 import * as THREE from "three";
+import { Loading } from "../components/shared/Loading";
 
 const HomePage = () => {
   const [hood, setHood] = useState(false);
@@ -24,7 +25,7 @@ const HomePage = () => {
   const [wheelSpeed, setWheelSpeed] = useState(0);
 
   return (
-    <Suspense fallback={null}>
+    <>
       <div className="flex justify-center">
         {console.log("wheelSpeed", wheelSpeed)}
         <ControlPanel
@@ -48,31 +49,33 @@ const HomePage = () => {
           setSelectedCar={setSelectedCar}
         />
       </div>
-      <Canvas shadows>
-        <CarShow
-          hood={hood}
-          bodyColor={bodyColor}
-          trunk={trunk}
-          hazard={hazard}
-          dayLight={dayLight}
-          brakeLight={brakeLight}
-          parkingLight={parkingLight}
-          hazardToggle={hazardToggle}
-          setHazard={setHazard}
-          setHazardToggle={setHazardToggle}
-          setWheelSpeed={setWheelSpeed}
-          wheelSpeed={wheelSpeed}
-          nextCar={nextCar}
-          setNextCar={setNextCar}
-          fLDoor={fLDoor}
-          setShowCarList={setShowCarList}
-          showCarList={showCarList}
-          moveForNextCar={moveForNextCar}
-          selectedCar={selectedCar}
-          setMoveForNextCar={setMoveForNextCar}
-        />
-      </Canvas>
-    </Suspense>
+      <Suspense fallback={<Loading loading={true} />}>
+        <Canvas shadows>
+          <CarShow
+            hood={hood}
+            bodyColor={bodyColor}
+            trunk={trunk}
+            hazard={hazard}
+            dayLight={dayLight}
+            brakeLight={brakeLight}
+            parkingLight={parkingLight}
+            hazardToggle={hazardToggle}
+            setHazard={setHazard}
+            setHazardToggle={setHazardToggle}
+            setWheelSpeed={setWheelSpeed}
+            wheelSpeed={wheelSpeed}
+            nextCar={nextCar}
+            setNextCar={setNextCar}
+            fLDoor={fLDoor}
+            setShowCarList={setShowCarList}
+            showCarList={showCarList}
+            moveForNextCar={moveForNextCar}
+            selectedCar={selectedCar}
+            setMoveForNextCar={setMoveForNextCar}
+          />
+        </Canvas>
+      </Suspense>
+    </>
   );
 };
 

@@ -9,8 +9,9 @@ import { Wheels } from "./carMovement/Wheels";
 import { Hood } from "./carParts/Hood";
 import { Trunk } from "./carParts/Trunk";
 import { BodyColor } from "./colors/BodyColor";
-import { useEffect } from "react";
+import { Suspense } from "react";
 import { FrontLeftDoor } from "./carParts/FrontLeftDoor";
+import { Loading } from "../components/shared/Loading";
 
 export const Car = ({
   hood,
@@ -59,5 +60,11 @@ export const Car = ({
   DayLights(group, dayLight);
   useHazardLights({ hazardToggle, setHazard, group, hazard });
 
-  return <>{gltf ? <primitive object={gltf.scene} /> : null}</>;
+  return (
+    <>
+      <Suspense fallback={<Loading loading={true} />}>
+        {gltf ? <primitive object={gltf.scene} /> : null}
+      </Suspense>
+    </>
+  );
 };
