@@ -10,7 +10,12 @@ const HomePage = () => {
   const [fLDoor, setFLDoor] = useState(false);
   const [bodyColor, setBodyColor] = useState(new THREE.Color("#fff"));
   const [showColors, setShowColors] = useState(false);
-  const [nextCar, setNextCar] = useState(false);
+  const [nextCar, setNextCar] = useState("models/car/MB-w2222/scene.gltf");
+  const [selectedCar, setSelectedCar] = useState(
+    "models/car/MB-w2222/scene.gltf"
+  );
+  const [showCarList, setShowCarList] = useState(false);
+  const [moveForNextCar, setMoveForNextCar] = useState(false);
   const [hazard, setHazard] = useState(0);
   const [hazardToggle, setHazardToggle] = useState(false);
   const [dayLight, setDayLight] = useState(0);
@@ -21,6 +26,7 @@ const HomePage = () => {
   return (
     <Suspense fallback={null}>
       <div className="flex justify-center">
+        {console.log("wheelSpeed", wheelSpeed)}
         <ControlPanel
           setHood={setHood}
           setTrunk={setTrunk}
@@ -36,6 +42,10 @@ const HomePage = () => {
           setNextCar={setNextCar}
           setFLDoor={setFLDoor}
           wheelSpeed={wheelSpeed}
+          setShowCarList={setShowCarList}
+          showCarList={showCarList}
+          setMoveForNextCar={setMoveForNextCar}
+          setSelectedCar={setSelectedCar}
         />
       </div>
       <Canvas shadows>
@@ -53,7 +63,13 @@ const HomePage = () => {
           setWheelSpeed={setWheelSpeed}
           wheelSpeed={wheelSpeed}
           nextCar={nextCar}
+          setNextCar={setNextCar}
           fLDoor={fLDoor}
+          setShowCarList={setShowCarList}
+          showCarList={showCarList}
+          moveForNextCar={moveForNextCar}
+          selectedCar={selectedCar}
+          setMoveForNextCar={setMoveForNextCar}
         />
       </Canvas>
     </Suspense>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ColorsList } from "./colors/ColorsList";
+import { ShowCarList } from "./allCars/ShowCarList";
 export const ControlPanel = ({
   setHood,
   setDayLight,
@@ -14,6 +15,10 @@ export const ControlPanel = ({
   setNextCar,
   setFLDoor,
   wheelSpeed,
+  setShowCarList,
+  showCarList,
+  setMoveForNextCar,
+  setSelectedCar,
 }) => {
   // const Cars = ["S-Class-AMG-W222", "SL63-AMG"];
   // const nextCar= (i = 0)=>{
@@ -84,7 +89,7 @@ export const ControlPanel = ({
           className="btn material-symbols-outlined"
           onClick={() => {
             setButtonDisabled((prev) => !prev),
-              setWheelSpeed((prev) => (prev === 0 ? 10 : 0));
+              setWheelSpeed((prev) => (prev === 0 ? 5 : 0));
           }}
         >
           <span>slow_motion_video</span>{" "}
@@ -95,22 +100,28 @@ export const ControlPanel = ({
           disabled={buttonDisabled}
           className={`${buttonDisabled ? "btn-disabled" : "btn"}`}
           onClick={() => {
-            setFLDoor(false),
-              setButtonDisabled(true),
-              setHazardToggle(false),
-              setHood(false),
-              setTrunk(false),
-              setNextCar((prev) => !prev),
-              setWheelSpeed(0.8);
+            setShowCarList((prev) => !prev);
           }}
         >
-          Next Car
+          Cars
         </button>
       </div> */}
       <ColorsList
         showColors={showColors}
         setBodyColor={setBodyColor}
         setShowColors={setShowColors}
+      />
+      <ShowCarList
+        showCarList={showCarList}
+        setNextCar={setNextCar}
+        setFLDoor={setFLDoor}
+        setButtonDisabled={setButtonDisabled}
+        setHazardToggle={setHazardToggle}
+        setHood={setHood}
+        setTrunk={setTrunk}
+        setWheelSpeed={setWheelSpeed}
+        setMoveForNextCar={setMoveForNextCar}
+        setSelectedCar={setSelectedCar}
       />
     </div>
   );

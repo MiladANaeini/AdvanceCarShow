@@ -3,17 +3,12 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useAnimations } from "@react-three/drei";
 
-export const Wheels = (gltf, wheelSpeed) => {
+export const Wheels = (gltf, wheelSpeed, nextCar) => {
   const [mixer] = useState(() => new THREE.AnimationMixer());
   const { actions } = useAnimations(gltf.animations, gltf.scene);
 
-  useEffect(() => {
-    if (!actions) {
-      console.warn("No actions found!");
-      return;
-    }
-
-    const actionNames = [
+  if (nextCar === "models/car/MB-w2222/scene.gltf") {
+    var actionNames = [
       "Object_4.001_Scene_-_Root.001_0Action",
       "Object_4.002_Scene_-_Root.001_0Action",
       "Object_4.003_Scene_-_Root.001_0Action",
@@ -23,7 +18,29 @@ export const Wheels = (gltf, wheelSpeed) => {
       "sw222_wheel_amg.002_sw222_main_alt_2.028_0Action",
       "sw222_wheel_amg.003_sw222_main_alt_2.028_0Action",
     ];
-
+  }
+  if (nextCar === "models/car/MB-SL63/scene.gltf") {
+    var actionNames = [
+      "Object_4.001_Scene_-_Root.002_0Action",
+      "Object_4.002_Scene_-_Root.002_0Action",
+      "Object_4.003_Scene_-_Root.002_0Action",
+      "Object_4.004_Scene_-_Root.002_0Action",
+      "SL63_wheel_SL63_black_0Action",
+      "SL63_wheel_SL63_silver_0Action",
+      "SL63_wheel.001_SL63_black_0Action",
+      "SL63_wheel.001_SL63_silver_0Action",
+      "SL63_wheel.002_SL63_black_0Action",
+      "SL63_wheel.002_SL63_silver_0Action",
+      "SL63_wheel.003_SL63_black_0Action",
+      "SL63_wheel.003_SL63_silver_0Action",
+    ];
+  }
+  useEffect(() => {
+    if (!actions) {
+      console.warn("No actions found!");
+      return;
+    }
+    console.log("actionNames", actionNames);
     const animationActions = actionNames.map((actionName) => {
       const action = actions[actionName];
       if (action) {
@@ -44,16 +61,6 @@ export const Wheels = (gltf, wheelSpeed) => {
 
   useEffect(() => {
     if (mixer && actions) {
-      const actionNames = [
-        "Object_4.001_Scene_-_Root.001_0Action",
-        "Object_4.002_Scene_-_Root.001_0Action",
-        "Object_4.003_Scene_-_Root.001_0Action",
-        "Object_4.004_Scene_-_Root.001_0Action",
-        "sw222_wheel_amg_sw222_main_alt_2.028_0Action",
-        "sw222_wheel_amg.001_sw222_main_alt_2.028_0Action",
-        "sw222_wheel_amg.002_sw222_main_alt_2.028_0Action",
-        "sw222_wheel_amg.003_sw222_main_alt_2.028_0Action",
-      ];
       actionNames.forEach((actionName) => {
         const action = actions[actionName];
         if (action) {

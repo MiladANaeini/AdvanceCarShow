@@ -14,7 +14,7 @@ import { BlendFunction } from "postprocessing";
 import { Ground } from "./Ground";
 import { Car } from "./Car";
 import { LightPole } from "./LightPole";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { MBLogo } from "./MBLogo";
 
 export const CarShow = ({
@@ -32,6 +32,12 @@ export const CarShow = ({
   bodyColor,
   nextCar,
   fLDoor,
+  setShowCarList,
+  showCarList,
+  moveForNextCar,
+  selectedCar,
+  setNextCar,
+  setMoveForNextCar,
 }) => {
   const [cameraPosition, setCameraPositon] = useState([3, 2, 5]);
   const [cameraRoatation, setCameraRoatation] = useState([0, 0, 0]);
@@ -146,6 +152,12 @@ export const CarShow = ({
               bodyColor={bodyColor}
               nextCar={nextCar}
               fLDoor={fLDoor}
+              setShowCarList={setShowCarList}
+              showCarList={showCarList}
+              moveForNextCar={moveForNextCar}
+              selectedCar={selectedCar}
+              setNextCar={setNextCar}
+              setMoveForNextCar={setMoveForNextCar}
             />
           </>
         )}

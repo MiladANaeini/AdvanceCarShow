@@ -26,19 +26,33 @@ export const Car = ({
   bodyColor,
   nextCar,
   setWheelSpeed,
+  setShowCarList,
+  showCarList,
+  moveForNextCar,
+  selectedCar,
+  setNextCar,
+  setMoveForNextCar,
 }) => {
-  const gltf = useLoader(GLTFLoader, "models/car/MB-w2222/scene.gltf");
+  const gltf = useLoader(GLTFLoader, nextCar);
   const group = gltf.scene.children[0].children[0].children[0];
-  CarGTLFLoader(gltf, group, nextCar, setWheelSpeed);
+  CarGTLFLoader(
+    gltf,
+    group,
+    nextCar,
+    setWheelSpeed,
+    moveForNextCar,
+    selectedCar,
+    setNextCar
+  );
 
   Hood(gltf, hood);
   Trunk(gltf, trunk, group);
   FrontLeftDoor(gltf, fLDoor, group);
   BodyColor(group, bodyColor);
 
-  Wheels(gltf, wheelSpeed);
+  Wheels(gltf, wheelSpeed, nextCar, setMoveForNextCar);
   console.log("gltf", gltf.scene.children[0].children[0].children[0]);
-  // console.log("gltf", gltf);
+  console.log("gltf", gltf);
 
   ParkingLights(group, parkingLight);
   BrakeLights(group, brakeLight);
