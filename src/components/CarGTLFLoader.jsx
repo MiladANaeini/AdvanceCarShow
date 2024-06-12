@@ -18,7 +18,6 @@ export const CarGTLFLoader = (
   const speed = 0.05; // Adjust speed as needed
   const duration = 5000; // Duration for the car to move from start to end
   const [isNextCarLoaded, setIsNextCarLoaded] = useState(false); // Track if the next car is loaded
-  const [isTransitionComplete, setIsTransitionComplete] = useState(false); // Track if the position transition is complete
   const cubicEaseInOut = (t) => {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   };
@@ -69,13 +68,11 @@ export const CarGTLFLoader = (
 
   useEffect(() => {
     if (moveForNextCar && isNextCarLoaded) {
-      setIsTransitionComplete(false);
-
       // Move the current car to the end position
       setTimeout(() => {
         targetPosition.current.set(0, -0.035, 20);
         lerpFactor.current = 0; // Reset lerp factor for easing
-        setWheelSpeed(0.7);
+        setWheelSpeed(0.8);
       }, 10);
 
       setTimeout(() => {
@@ -91,38 +88,31 @@ export const CarGTLFLoader = (
           currentPosition.current.set(0, -0.035, -20);
           targetPosition.current.set(0, -0.035, 0);
           lerpFactor.current = 0; // Reset lerp factor for easing
-          setWheelSpeed(0.7); // Set wheel speed to 0.7 when the car starts moving
-
-          // Monitor the transition and stop the wheels when the car reaches the target position
-          const checkTransitionCompletion = () => {
-            if (
-              currentPosition.current.distanceTo(targetPosition.current) < 1.5
-            ) {
-              setIsTransitionComplete(true);
-              setWheelSpeed(0);
-            } else {
-              requestAnimationFrame(checkTransitionCompletion);
-            }
-          };
-
-          // Start checking the transition completion
-          requestAnimationFrame(checkTransitionCompletion);
+          setWheelSpeed(0.8); // Set wheel speed to 0.8 when the car starts moving
         }, 100); // Adjust timing as needed
       }, duration); // Adjust timing as needed
     }
-  }, [moveForNextCar, isNextCarLoaded, selectedCar, setNextCar]);
+  }, [moveForNextCar, selectedCar]);
 
   useFrame((state, delta) => {
-    // Increase lerp factor based on the speed
-    lerpFactor.current = Math.min(1, lerpFactor.current + speed * delta);
-    const easedLerpFactor = cubicEaseInOut(lerpFactor.current);
+    if (moveForNextCar) {
+      // Increase lerp factor based on the speed
+      lerpFactor.current = Math.min(1, lerpFactor.current + speed * delta);
+      const easedLerpFactor = cubicEaseInOut(lerpFactor.current);
 
-    // Smoothly transition the car's position towards the target position with easing
-    currentPosition.current.lerpVectors(
-      currentPosition.current,
-      targetPosition.current,
-      easedLerpFactor
-    );
-    gltf.scene.position.copy(currentPosition.current);
+      // Smoothly transition the car's position towards the target position with easing
+      currentPosition.current.lerpVectors(
+        currentPosition.current,
+        targetPosition.current,
+        easedLerpFactor
+      );
+      gltf.scene.position.copy(currentPosition.current);
+
+      // Check if the car has reached the target position
+      if (currentPosition.current.distanceTo(targetPosition.current) < 2.8) {
+        setWheelSpeed(0);
+        // setMoveForNextCar(false);
+      }
+    }
   });
 };

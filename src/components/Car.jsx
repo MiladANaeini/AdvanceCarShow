@@ -43,7 +43,8 @@ export const Car = ({
     setWheelSpeed,
     moveForNextCar,
     selectedCar,
-    setNextCar
+    setNextCar,
+    setMoveForNextCar
   );
 
   Hood(gltf, hood);
