@@ -50,16 +50,16 @@ export const Car = ({
   Hood(gltf, hood, nextCar);
   Trunk(gltf, trunk, group, nextCar);
   FrontLeftDoor(gltf, fLDoor, group, nextCar);
-  BodyColor(group, bodyColor);
+  BodyColor(group, bodyColor, nextCar);
 
   Wheels(gltf, wheelSpeed, nextCar, setMoveForNextCar);
   console.log("gltf", gltf.scene.children[0].children[0].children[0]);
   console.log("gltf", gltf);
 
-  ParkingLights(group, parkingLight);
-  BrakeLights(group, brakeLight);
-  DayLights(group, dayLight);
-  useHazardLights({ hazardToggle, setHazard, group, hazard });
+  ParkingLights(group, parkingLight, nextCar);
+  BrakeLights(group, brakeLight, nextCar);
+  DayLights(group, dayLight, nextCar);
+  useHazardLights({ hazardToggle, setHazard, group, hazard, nextCar });
 
   return (
     <>
