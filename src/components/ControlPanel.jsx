@@ -88,8 +88,9 @@ export const ControlPanel = ({
         <button
           className="btn material-symbols-outlined"
           onClick={() => {
-            setButtonDisabled((prev) => !prev),
-              setWheelSpeed((prev) => (prev === 0 ? 5 : 0));
+            setButtonDisabled((prev) => !prev);
+            setMoveForNextCar(false);
+            setWheelSpeed((prev) => (prev === 0 ? 5 : 0));
           }}
         >
           <span>slow_motion_video</span>{" "}

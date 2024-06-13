@@ -32,7 +32,6 @@ export const CarGTLFLoader = (
         object.material.envMapIntensity = 20;
       }
     });
-
     if (nextCar === "models/car/MB-w2222/scene.gltf") {
       group.children[96].children[0].material.emissiveIntensity = 0; // brake lights
       group.children[96].children[4].material.emissiveIntensity = 0; // parking lights
@@ -68,6 +67,8 @@ export const CarGTLFLoader = (
 
   useEffect(() => {
     if (moveForNextCar && isNextCarLoaded) {
+      setIsNextCarLoaded(false);
+
       // Move the current car to the end position
       setTimeout(() => {
         targetPosition.current.set(0, -0.035, 20);
@@ -111,7 +112,6 @@ export const CarGTLFLoader = (
       // Check if the car has reached the target position
       if (currentPosition.current.distanceTo(targetPosition.current) < 2.8) {
         setWheelSpeed(0);
-        // setMoveForNextCar(false);
       }
     }
   });

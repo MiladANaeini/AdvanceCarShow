@@ -43,6 +43,7 @@ export const Wheels = (gltf, wheelSpeed, nextCar) => {
     const animationActions = actionNames.map((actionName) => {
       const action = actions[actionName];
       if (action) {
+        console.log("first");
         action.reset();
         action.play();
       } else {
@@ -83,6 +84,7 @@ export const Wheels = (gltf, wheelSpeed, nextCar) => {
               action.timeScale = targetSpeed;
             }
           };
+          console.log("wheelSpeed2222", wheelSpeed);
 
           requestAnimationFrame(updateSpeed);
         }
