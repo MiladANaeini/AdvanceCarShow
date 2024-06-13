@@ -47,8 +47,8 @@ export const Car = ({
     setMoveForNextCar
   );
 
-  Hood(gltf, hood);
-  Trunk(gltf, trunk, group);
+  Hood(gltf, hood, nextCar);
+  Trunk(gltf, trunk, group, nextCar);
   FrontLeftDoor(gltf, fLDoor, group);
   BodyColor(group, bodyColor);
 

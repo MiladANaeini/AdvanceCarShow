@@ -84,8 +84,6 @@ export const Wheels = (gltf, wheelSpeed, nextCar) => {
               action.timeScale = targetSpeed;
             }
           };
-          console.log("wheelSpeed2222", wheelSpeed);
-
           requestAnimationFrame(updateSpeed);
         }
       });

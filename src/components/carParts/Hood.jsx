@@ -3,18 +3,22 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import { useAnimations } from "@react-three/drei";
 
-export const Hood = (gltf, hood) => {
+export const Hood = (gltf, hood, nextCar) => {
   const { actions } = useAnimations(gltf.animations, gltf.scene);
   const [mixer] = useState(() => new THREE.AnimationMixer());
+  if (nextCar === "models/car/MB-w2222/scene.gltf") {
+    var actionNames = ["sw222_hood_2013_sw222_paint_0Action"];
+  }
+  if (nextCar === "models/car/MB-SL63/scene.gltf") {
+    var actionNames = ["SL63_hood_SL63_paint_0Action"];
+  }
 
   useEffect(() => {
     if (!actions) {
       console.warn("No actions found!");
       return;
     }
-
-    const actionName = "sw222_hood_2013_sw222_paint_0Action";
-    const action = actions[actionName];
+    const action = actions[actionNames];
     if (action) {
       action.reset().setLoop(THREE.LoopOnce, 1);
 
@@ -28,13 +32,11 @@ export const Hood = (gltf, hood) => {
         action.time = action.getClip().duration; // Set time to the end for reverse playback
         action.play();
       }
-
-      return () => {
-        action.stop();
-      };
-    } else {
-      console.warn(`Action '${actionName}' not found!`);
     }
+
+    return () => {
+      action.stop();
+    };
   }, [actions, hood]);
 
   useFrame((state, delta) => {
