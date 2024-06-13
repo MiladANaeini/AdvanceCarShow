@@ -96,7 +96,7 @@ export const ControlPanel = ({
           <span>slow_motion_video</span>{" "}
         </button>
       </div>
-      <div>
+      {/* <div>
         <button
           disabled={buttonDisabled}
           className={`${buttonDisabled ? "btn-disabled" : "btn"}`}
@@ -106,7 +106,7 @@ export const ControlPanel = ({
         >
           Cars
         </button>
-      </div>
+      </div> */}
       <ColorsList
         showColors={showColors}
         setBodyColor={setBodyColor}
