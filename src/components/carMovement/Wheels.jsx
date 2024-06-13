@@ -43,7 +43,6 @@ export const Wheels = (gltf, wheelSpeed, nextCar) => {
     const animationActions = actionNames.map((actionName) => {
       const action = actions[actionName];
       if (action) {
-        console.log("first");
         action.reset();
         action.play();
       } else {

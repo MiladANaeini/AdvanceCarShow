@@ -7,21 +7,6 @@ export const useHazardLights = ({
   group,
   nextCar,
 }) => {
-  if (nextCar === "models/car/MB-w2222/scene.gltf") {
-    var actionNames = [
-      group.children[96].children[2].material.emissiveIntensity,
-      group.children[22].children[0].children[19].material.emissiveIntensity,
-      group.children[76].children[5].material.emissiveIntensity,
-      group.children[60].children[2].material.emissiveIntensity,
-      group.children[63].children[2].material.emissiveIntensity,
-    ];
-  }
-  if (nextCar === "models/car/MB-SL63/scene.gltf") {
-    var actionNames = [
-      "SL63_trunk_SL63_paint_0Action",
-      "SL63_trunk_SL63_silver_0Action",
-    ];
-  }
   if (group) {
     useEffect(() => {
       let interval;

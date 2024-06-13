@@ -27,7 +27,6 @@ const HomePage = () => {
   return (
     <>
       <div className="flex justify-center">
-        {console.log("wheelSpeed", wheelSpeed)}
         <ControlPanel
           setHood={setHood}
           setTrunk={setTrunk}
