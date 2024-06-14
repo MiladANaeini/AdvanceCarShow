@@ -28,7 +28,7 @@ export const ControlPanel = ({
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   return (
-    <div className=" card-box mt-2">
+    <div className=" card-box mt-14">
       <div>
         <button className="btn" onClick={() => setHood((prev) => !prev)}>
           Hood

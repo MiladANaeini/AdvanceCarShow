@@ -4,6 +4,7 @@ import { CarShow } from "../components/CarShow";
 import { ControlPanel } from "../components/ControlPanel";
 import * as THREE from "three";
 import { Loading } from "../components/shared/Loading";
+import TopNav from "../components/layout/TopNav";
 
 const HomePage = () => {
   const [hood, setHood] = useState(false);
@@ -26,6 +27,9 @@ const HomePage = () => {
 
   return (
     <>
+      <div>
+        <TopNav />
+      </div>
       <div className="flex justify-center">
         <ControlPanel
           setHood={setHood}

@@ -30,8 +30,8 @@ canvas {
      focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  font-normal;
   }
   .card-box {
-    @apply bg-white bg-opacity-30 hover:bg-opacity-100 transition duration-500
-      text-center flex  py-4 px-6 justify-center  gap-4 rounded-md max-w-max absolute z-50;
+    @apply bg-white bg-opacity-10 hover:bg-opacity-100 transition duration-500
+      text-center flex  py-4 px-6 justify-center  gap-4 rounded-md max-w-max absolute z-40 border-y-2 border-white border-x-0;
   }
   .colors-card-box {
     @apply bg-white bg-opacity-30 hover:bg-opacity-100 transition duration-500
