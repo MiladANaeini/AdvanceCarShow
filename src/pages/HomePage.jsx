@@ -5,6 +5,7 @@ import { ControlPanel } from "../components/ControlPanel";
 import * as THREE from "three";
 import { Loading } from "../components/shared/Loading";
 import TopNav from "../components/layout/TopNav";
+import { CarInfoCard } from "../components/carInfo/CarInfoCard";
 
 const HomePage = () => {
   const [hood, setHood] = useState(false);
@@ -52,6 +53,9 @@ const HomePage = () => {
           setSelectedCar={setSelectedCar}
         />
       </div>
+      {/* <div className="info-card-box mt-14">
+        <CarInfoCard />
+      </div> */}
       <Suspense fallback={<Loading loading={true} />}>
         <Canvas shadows>
           <CarShow
