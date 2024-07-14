@@ -25,7 +25,7 @@ const HomePage = () => {
   const [brakeLight, setBrakeLight] = useState(0);
   const [parkingLight, setParkingLight] = useState(0);
   const [wheelSpeed, setWheelSpeed] = useState(0);
-
+  const [carPart, setCarPart] = useState("");
   return (
     <>
       <div>
@@ -51,11 +51,12 @@ const HomePage = () => {
           showCarList={showCarList}
           setMoveForNextCar={setMoveForNextCar}
           setSelectedCar={setSelectedCar}
+          setCarPart={setCarPart}
         />
       </div>
-      {/* <div className="info-card-box mt-14">
-        <CarInfoCard />
-      </div> */}
+      <div className="info-card-box mt-14">
+        {/* <CarInfoCard carPart={carPart} /> */}
+      </div>
       <Suspense fallback={<Loading loading={true} />}>
         <Canvas shadows>
           <CarShow

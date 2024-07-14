@@ -19,6 +19,7 @@ export const ControlPanel = ({
   showCarList,
   setMoveForNextCar,
   setSelectedCar,
+  setCarPart,
 }) => {
   // const Cars = ["S-Class-AMG-W222", "SL63-AMG"];
   // const nextCar= (i = 0)=>{
@@ -30,7 +31,13 @@ export const ControlPanel = ({
   return (
     <div className=" card-box mt-14">
       <div>
-        <button className="btn" onClick={() => setHood((prev) => !prev)}>
+        <button
+          className="btn"
+          onClick={() => {
+            setHood((prev) => !prev);
+            setCarPart((prevHood) => (prevHood ? "" : "MBW222Engine"));
+          }}
+        >
           Hood
         </button>
       </div>
