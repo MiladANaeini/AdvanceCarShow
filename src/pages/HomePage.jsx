@@ -54,9 +54,9 @@ const HomePage = () => {
           setCarPart={setCarPart}
         />
       </div>
-      <div className="info-card-box mt-14">
-        {/* <CarInfoCard carPart={carPart} /> */}
-      </div>
+      {/* <div className="info-card-box mt-14">
+        <CarInfoCard carPart={carPart} />
+      </div> */}
       <Suspense fallback={<Loading loading={true} />}>
         <Canvas shadows>
           <CarShow
