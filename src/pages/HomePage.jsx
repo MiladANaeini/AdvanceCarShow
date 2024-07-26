@@ -25,7 +25,7 @@ const HomePage = () => {
   const [brakeLight, setBrakeLight] = useState(0);
   const [parkingLight, setParkingLight] = useState(0);
   const [wheelSpeed, setWheelSpeed] = useState(0);
-  const [carPart, setCarPart] = useState("");
+  const [carPart, setCarPart] = useState("MBW222");
   return (
     <>
       <div>
