@@ -14,8 +14,10 @@ import { BlendFunction } from "postprocessing";
 import { Ground } from "./Ground";
 import { Car } from "./Car";
 import { LightPole } from "./LightPole";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MBLogo } from "./MBLogo";
+import { useFrame } from "@react-three/fiber";
+import { Vector3, Euler } from "three";
 
 export const CarShow = ({
   hood,
@@ -39,32 +41,94 @@ export const CarShow = ({
   setNextCar,
   setMoveForNextCar,
 }) => {
-  const [cameraPosition, setCameraPositon] = useState([3, 2, 5]);
-  const [cameraRoatation, setCameraRoatation] = useState([0, 0, 0]);
-  const trunkCameraPosition = [-1.0122, 1.5995, -4.537925];
-  const trunkCameraRoatation = [-2.605, -0.419, -2.904];
-  const hoodCameraPerspective = [0.8, 1.8, 4];
-  const mainCameraPosition = [3, 2, 5];
-  const mainCameraRoatation = [0, 0, 0];
+  const cameraRef = useRef();
+  const controlsRef = useRef();
+  const [isMoving, setIsMoving] = useState(false);
+
+  const hoodCameraPosition = new Vector3(0.8, 1.8, 4);
+  const hoodCameraRotation = new Euler(
+    -0.3477669878570154,
+    0.185857209004103,
+    0.06688610701996102
+  );
+  const trunkCameraPosition = new Vector3(-1.0122, 1.5995, -4.537925);
+  const trunkCameraRotation = new Euler(
+    -2.8729046946801473,
+    -0.21182427105818852,
+    -3.0837673935444663
+  );
+
+  const lerpEuler = (start, end, t) => {
+    return new Euler(
+      start.x + (end.x - start.x) * t,
+      start.y + (end.y - start.y) * t,
+      start.z + (end.z - start.z) * t
+    );
+  };
+
+  // Update target position and rotation based on state changes
+  const moveCamera = (targetPosition, targetRotation) => {
+    if (cameraRef.current) {
+      const camera = cameraRef.current;
+
+      // Smoothly interpolate position and rotation
+      camera.position.lerp(targetPosition, 0.1);
+      camera.rotation.copy(lerpEuler(camera.rotation, targetRotation, 0.1));
+
+      // Check if the camera has reached the target position and rotation
+      const positionReached =
+        camera.position.distanceTo(targetPosition) < 0.001;
+      const rotationReached =
+        Math.abs(camera.rotation.x - targetRotation.x) < 0.001 &&
+        Math.abs(camera.rotation.y - targetRotation.y) < 0.001 &&
+        Math.abs(camera.rotation.z - targetRotation.z) < 0.001;
+
+      if (positionReached && rotationReached) {
+        camera.position.copy(targetPosition); // Ensure exact position
+        camera.rotation.copy(targetRotation); // Ensure exact rotation
+        setIsMoving(false);
+        controlsRef.current.enabled = true; // Re-enable controls after movement
+      }
+    }
+  };
   useEffect(() => {
-    if (hood) {
-      setCameraPositon(hoodCameraPerspective);
+    if (hood && cameraRef.current) {
+      setIsMoving(true);
+      controlsRef.current.enabled = false; // Disable controls during movement
     }
   }, [hood]);
+
   useEffect(() => {
-    if (trunk) {
-      setCameraPositon(trunkCameraPosition);
+    if (trunk && cameraRef.current) {
+      setIsMoving(true);
+      controlsRef.current.enabled = false; // Disable controls during movement
     }
   }, [trunk]);
 
+  useFrame(() => {
+    if (isMoving) {
+      if (hood) {
+        moveCamera(hoodCameraPosition, hoodCameraRotation);
+      } else if (trunk) {
+        moveCamera(trunkCameraPosition, trunkCameraRotation);
+      }
+    }
+  });
+
   return (
     <>
-      <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
+      <OrbitControls
+        ref={controlsRef}
+        target={[0, 0.35, 0]}
+        maxPolarAngle={1.45}
+        enabled={!isMoving}
+      />
       <PerspectiveCamera
         makeDefault
         fov={50}
-        position={cameraPosition}
-        rotation={cameraRoatation}
+        ref={cameraRef}
+        position={[3, 2, 5]}
+        rotation={[0, 0, 0]}
       />
       <color args={[0, 0, 0]} attach={"background"} />
       <spotLight
